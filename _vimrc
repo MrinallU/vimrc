@@ -1,5 +1,7 @@
 syntax on
 set encoding=UTF-8
+set fileencoding=utf-8
+set termencoding=utf-8
 let g:rainbow_active = 1
 set clipboard=unnamed
 set guioptions-=m  "menu bar
@@ -20,6 +22,7 @@ set guifont=Lucida_Console:h11
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 " Colorscheme
+Plug 'francoiscabrol/ranger.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'frazrepo/vim-rainbow'
@@ -29,7 +32,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-easy-align'
 Plug 'valloric/vim-indent-guides'
 " Multiple Plug commands can be written in a single line using | separators
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'universal-ctags/ctags'
@@ -50,6 +53,11 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'mxw/vim-jsx'
+Plug 'Yggdroot/indentLine'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'spacevim/spacevim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'koron/minimap-vim'
 call plug#end()
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -87,3 +95,12 @@ exec "!firefox %.html &"
 endif
 endfunc
 colorscheme base16-gruvbox-dark-medium
+let g:NERDTreeHijackNetrw = 0
+let g:ranger_replace_netrw = 1
+let g:indentLine_setColors = 0
+set guifont=CaskaydiaCove_Nerd_Font:h12
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#enabled = 1
+nmap <F8> :TagbarToggle<CR>
+nmap <F7> :NERDTreeToggle<CR>
